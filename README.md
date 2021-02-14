@@ -12,7 +12,7 @@ These business modules can be integrated in the quarkus module, which builds the
 ### What to consider?
 - Use a rather new version of `maven-compiler-plugin` everywhere in order to get modules to compile!
 - Do not forget the `META-INF/beans.xml` in order to have working CDI.
-- There are unnamed modules used. To use unnamed modules make this: `(${groupId}.${artifactId}).replace("-",".")` e.g. for CDI:  `jakarta.enterprise.cdi-api` -> `jakarta.enterprise.cdi.api`
+- There are unnamed modules used. To use unnamed modules make this: http://tutorials.jenkov.com/java/modules.html#automatic-modules
 
 ### Verified APIs
 Following APIs supported by Quarkus are verified to work in modules as well:
@@ -21,6 +21,7 @@ Following APIs supported by Quarkus are verified to work in modules as well:
 
 ## Drawbacks
 Integration have to placed in the quarkus module.
+Somehow the integration test do not work if started from eclipse...
 
 ## How can I verify that this stuff is working?
 `mvn clean install` -> test from `quarkus-module` is run and this verifies that the modules `business-a/b` works
@@ -29,3 +30,4 @@ Integration have to placed in the quarkus module.
 - How does JPA work?
 - How does configuration work?
 - Does the native build work?
+- Find how the integration tests are started from eclipse!
